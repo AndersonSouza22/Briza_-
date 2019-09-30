@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:
+  briza_-:
+    image: ${DOCKER_REGISTRY-}briza
+    build:
+      context: .
+      dockerfile: Briza_-/Dockerfile
+    ports:
+      - "3020:80"
+
+  briza_saida:
+    image: ${DOCKER_REGISTRY-}brizasaida
+    build:
+      context: .
+      dockerfile: Briza_Saida/Dockerfile
+
+
+  api_briza:
+    image: ${DOCKER_REGISTRY-}apibriza
+    build:
+      context: .
+      dockerfile: API_Briza/Dockerfile
+
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: dbo
+
+

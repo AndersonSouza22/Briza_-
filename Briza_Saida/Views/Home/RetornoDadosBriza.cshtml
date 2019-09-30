@@ -1,0 +1,116 @@
+﻿@model IEnumerable<Briza_Saida.Models.ModelRetornoBriza>
+
+@{
+    
+        ViewData["Title"] = "FormBriza Retorno";
+        Layout = "~/Views/Shared/MasterPage.cshtml";
+    
+}
+
+<!DOCTYPE html>
+
+
+
+<div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6">
+        <div class="d1">
+            <br />
+            <div id="DivIncluir" class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="panel-title text-center">Relatório Brizas</div>
+                </div>
+
+                <table class="table table-striped table-bordered table-hover table-condensed">
+                    <tr>
+                        <td>
+                            <label class="FonteMenuLabel text-center">Id Briza</label>
+                        </td>
+                        <td class="text-center">
+                            <label class="FonteMenuLabel text-center">Nome Briza</label>
+                        </td>
+                        <td>
+                            <label class="FonteMenuLabel text-center">Data Cadastro </label>
+                        </td>
+                        <td>
+                            <label class="FonteMenuLabel text-center">Email Brizado </label>
+                        </td>
+
+
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.LabelForModel(Convert.ToString(item.Id), new { @class = "FonteMenu" })
+                            </td>
+                            <td class="FonteMenu text-center">
+                                @Html.LabelForModel(item.Nome, new { @class = "FonteMenu" })
+                            </td>
+                            <td>
+                                @Html.LabelForModel(Convert.ToString(item.DataCadastro), new { @class = "FonteMenu" })
+                            </td>
+                            <td>
+                                @Html.LabelForModel(item.Email, new { @class = "FonteMenu" })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-3">
+</div>
+
+@*<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>RetornoDadosBriza</title>
+    </head>
+    <body>
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataCadastro)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataCadastro)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </body>
+    </html>*@

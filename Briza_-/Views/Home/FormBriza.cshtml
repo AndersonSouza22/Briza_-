@@ -1,0 +1,44 @@
+﻿@model Briza_.Models.ModelBrizaEnvio
+
+@{
+    ViewData["Title"] = "FormBriza";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+<br />
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("CadastroBrizaOld", "Home", FormMethod.Post))
+        {
+
+            @*<form asp-action="FormBriza">*@
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label">Nome :</label>
+                @Html.TextBoxFor(b => b.Nome, new { @placeholder = "Digite seu nome " })
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email :</label>
+                @Html.TextBoxFor(b => b.Email, new { @placeholder = "Digite seu nome " })
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <br />
+
+            <div class="form-group">
+                <input type="submit" value="Incluir" class="btn btn-success" />
+            </div>
+        }
+        @*</form>*@
+            <center>
+                @ViewBag.Mensagem
+            </center>
+    </div>
+</div>
+
+@*<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+
